@@ -3,106 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oscar Eybers Research Chapters</title>
+    <title>Dr Oscar Eybers Research Chapters</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Base styling */
-        :root {
-            --neon-silver: #e2e2e2;
-            --neon-purple: #9d4edd;
-            --dark-bg: #0a0a14;
-            --darker-bg: #05050c;
-            --card-bg: rgba(20, 20, 30, 0.8);
-            --accent-glow: 0 0 10px rgba(157, 78, 221, 0.7), 0 0 20px rgba(157, 78, 221, 0.4);
-            --silver-glow: 0 0 8px rgba(226, 226, 226, 0.8);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark-bg);
-            color: #f1f1f1;
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(157, 78, 221, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 70%, rgba(157, 78, 221, 0.1) 0%, transparent 20%),
-                linear-gradient(to bottom, var(--darker-bg) 0%, var(--dark-bg) 100%);
-            min-height: 100vh;
-            padding: 0;
-            overflow-x: hidden;
+        :root {
+            --primary: #0ff;
+            --secondary: #f0f;
+            --accent: #9d4edd;
+            --dark: #0a0a14;
+            --darker: #050508;
+            --light: #f0f0f0;
+            --card-bg: rgba(20, 20, 30, 0.7);
         }
 
-        .cyber-global-glow {
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(157, 78, 221, 0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .grid-lines {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
             pointer-events: none;
-            background: radial-gradient(circle at 50% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 60%);
             z-index: -1;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header styling */
-        .cyber-header {
-            text-align: center;
-            margin: 40px 0 60px;
             position: relative;
-            padding: 30px 20px;
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 12px;
-            background: var(--card-bg);
-            box-shadow: var(--accent-glow);
-            backdrop-filter: blur(5px);
         }
 
-        .cyber-header::before {
+        header {
+            text-align: center;
+            padding: 30px 0 15px;
+            position: relative;
+            background: linear-gradient(to right, rgba(0, 255, 255, 0.1), transparent);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            margin-bottom: 22.5px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 7.5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2.25px;
+            text-shadow: 0 0 11.25px rgba(0, 255, 255, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            z-index: -1;
-            background: linear-gradient(45deg, #9d4edd, #5a189a, #9d4edd, #5a189a);
-            background-size: 400% 400%;
-            border-radius: 12px;
-            animation: gradientShift 8s ease infinite;
-            opacity: 0.5;
+            bottom: -6px;
+            left: 10%;
+            width: 80%;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            border-radius: 50%;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .subtitle {
+            font-size: 0.825rem;
+            color: #aaa;
+            max-width: 800px;
+            margin: 11.25px auto 15px;
+            line-height: 1.6;
         }
 
-        .cyber-header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--neon-silver);
-            text-shadow: var(--silver-glow);
-            letter-spacing: 1px;
-            font-weight: 700;
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 11.25px;
+            padding: 15px;
+            max-width: 600px;
+            margin: 22.5px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 22.5px rgba(0, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cyber-header .subtitle {
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 7.5px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-card h2 {
+            color: var(--primary);
+            margin-bottom: 11.25px;
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #c2c2d6;
-            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 11.25px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.825rem;
+            transition: all 0.3s ease;
+            word-break: break-all;
+            display: inline-block;
+            padding: 3.75px 7.5px;
+            border-radius: 3.75px;
+        }
+
+        .contact-card a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 11.25px rgba(255, 0, 255, 0.7);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Tabs styling */
@@ -116,8 +188,8 @@
 
         .cyber-tab {
             padding: 12px 25px;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid rgba(157, 78, 221, 0.4);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 6px;
             color: #b8b8cc;
             cursor: pointer;
@@ -125,6 +197,7 @@
             font-weight: 500;
             position: relative;
             overflow: hidden;
+            font-family: 'Exo 2', sans-serif;
         }
 
         .cyber-tab::before {
@@ -134,7 +207,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
@@ -143,213 +216,328 @@
         }
 
         .cyber-tab:hover, .cyber-tab.active {
-            background: rgba(157, 78, 221, 0.15);
-            color: var(--neon-silver);
-            border-color: var(--neon-purple);
-            box-shadow: var(--accent-glow);
+            background: rgba(0, 255, 255, 0.15);
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
 
         .cyber-tab.active {
-            background: rgba(157, 78, 221, 0.25);
+            background: rgba(0, 255, 255, 0.25);
         }
 
-        /* Article card styling */
-        .cyber-grid {
+        .articles-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
+            margin: 30px 0;
         }
 
-        .cyber-card {
+        .article-card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 11.25px;
+            padding: 18.75px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            height: 100%;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
-        .cyber-card::before {
+        .article-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--neon-purple), #5a189a);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-7.5px);
+            box-shadow: 0 11.25px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 255, 255, 0.4);
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-card h3 {
+            color: var(--primary);
+            font-size: 0.975rem;
+            margin-bottom: 11.25px;
+            line-height: 1.4;
+            flex-grow: 1;
+            font-weight: 600;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 9px 0;
+        }
+
+        .meta-tag {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--primary);
+            padding: 3.75px 9px;
+            border-radius: 15px;
+            font-size: 0.6375rem;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .new-tag {
+            background: rgba(157, 78, 221, 0.2);
+            color: var(--accent);
+            border-color: rgba(157, 78, 221, 0.3);
+        }
+
+        .article-journal {
+            color: #bbb;
+            font-style: italic;
+            margin: 6px 0;
+            font-size: 0.75rem;
+        }
+
+        .article-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 11.25px;
+            font-size: 0.75rem;
+        }
+
+        .article-link {
+            display: inline-block;
+            color: var(--light);
+            background: linear-gradient(90deg, rgba(0, 255, 255, 0.2), rgba(157, 78, 221, 0.2));
+            padding: 7.5px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            text-align: center;
+            width: 100%;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.75px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .article-link:hover {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--darker);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transform: translateY(-2.25px);
+        }
+
+        .article-link:hover::before {
+            left: 100%;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0 15px;
+            color: #777;
+            font-size: 0.675rem;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            margin-top: 22.5px;
+        }
+
+        .footer p {
+            margin: 6px 0;
+        }
+
+        .university-logo {
+            width: 120px;
+            margin: 11.25px auto;
+            filter: brightness(0.8);
             opacity: 0.7;
         }
 
-        .cyber-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4), var(--accent-glow);
-            border-color: rgba(157, 78, 221, 0.5);
-        }
-
-        .cyber-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .cyber-tag {
-            background: linear-gradient(45deg, var(--neon-purple), #7b2cbf);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: 600;
-            box-shadow: 0 0 8px rgba(157, 78, 221, 0.6);
-        }
-
-        .cyber-card h3 {
-            margin: 15px 0;
-            color: var(--neon-silver);
-            font-size: 1.5rem;
-            line-height: 1.3;
-            text-shadow: var(--silver-glow);
-        }
-
-        .cyber-card-content {
-            color: #c2c2d6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .cyber-meta {
-            color: #9d9db5;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .cyber-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .footer-link {
+            display: inline-block;
             margin-top: 15px;
-            color: var(--neon-silver);
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 1px solid rgba(157, 78, 221, 0.4);
-            border-radius: 5px;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            background: rgba(20, 20, 30, 0.7);
-            align-self: flex-start;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
         }
 
-        .cyber-link:hover {
-            background: rgba(157, 78, 221, 0.2);
-            box-shadow: var(--accent-glow);
-            transform: translateY(-2px);
+        .footer-link:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 0, 255, 0.3);
         }
 
-        /* Footer styling */
-        .cyber-footer {
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--darker-bg);
-            border-top: 1px solid rgba(157, 78, 221, 0.3);
-            margin-top: 60px;
-            position: relative;
+        /* Floating Contact Form Styles */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
         }
 
-        .cyber-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
-            box-shadow: var(--accent-glow);
-        }
-
-        .cyber-logo {
-            margin-bottom: 25px;
-        }
-
-        .cyber-logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--neon-silver);
-            text-shadow: var(--silver-glow);
-            letter-spacing: 2px;
-        }
-
-        .footer-content {
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-            color: #a2a2b5;
-        }
-
-        .cyber-contact {
-            padding: 25px;
-            border-radius: 10px;
-            background: var(--card-bg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 30px;
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-title {
-            color: var(--neon-silver);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            text-shadow: var(--silver-glow);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .contact-item {
+        .contact-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--darker);
+            border: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
             justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .contact-icon {
-            color: var(--neon-purple);
-            font-size: 1.2rem;
+        .contact-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
         }
 
-        .contact-item a {
-            color: #c2c2d6;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .contact-form-container {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
         }
 
-        .contact-item a:hover {
-            color: var(--neon-silver);
-            text-shadow: var(--silver-glow);
+        .contact-form-container.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .cyber-grid {
+        .contact-form-container h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(10, 10, 20, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--light);
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--darker);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(0, 255, 0, 0.1);
+            color: #0f0;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            display: block;
+        }
+
+        .form-message.error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #f00;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            display: block;
+        }
+
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .articles-container {
                 grid-template-columns: 1fr;
             }
             
-            .cyber-header h1 {
-                font-size: 2.2rem;
+            h1 {
+                font-size: 2.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.75rem;
             }
             
             .cyber-tabs {
@@ -363,29 +551,54 @@
             }
         }
 
-        /* Animation effects */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 5px rgba(157, 78, 221, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(157, 78, 221, 0.8); }
-            100% { box-shadow: 0 0 5px rgba(157, 78, 221, 0.5); }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.65rem;
+            }
+            
+            .contact-card a {
+                font-size: 0.75rem;
+            }
+            
+            .article-card {
+                padding: 15px 11.25px;
+            }
+            
+            .article-card h3 {
+                font-size: 0.9rem;
+            }
+            
+            .floating-contact {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .contact-form-container {
+                width: 300px;
+                right: -20px;
+            }
         }
 
-        .cyber-card {
-            animation: pulse 4s infinite ease-in-out;
-        }
-
-        .cyber-card:hover {
-            animation: none;
+        @media (max-width: 400px) {
+            .contact-form-container {
+                width: 280px;
+                right: -40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="cyber-global-glow"></div>
+    <div class="grid-lines"></div>
     
     <div class="container">
-        <header class="cyber-header">
+        <header>
             <h1>Dr Oscar Eybers Research Chapters</h1>
             <p class="subtitle">Selected chapters exploring inclusive educational practices, Afrocentric approaches, and innovative frameworks for academic development</p>
+            
+            <div class="contact-card">
+                <h2><i class="fas fa-envelope"></i> Digital Research Repository</h2>
+                <a href="https://oeybers-cpu.github.io/oe_research/" target="_blank">Research Portal</a>
+            </div>
         </header>
 
         <div class="cyber-tabs">
@@ -396,142 +609,210 @@
             <div class="cyber-tab" data-filter="governance">Educational Governance</div>
         </div>
 
-        <div class="cyber-grid">
+        <div class="articles-container">
             <!-- Chapter 1 -->
-            <div class="cyber-card" data-category="inclusive">
-                <div class="cyber-card-header">
-                    <span class="cyber-tag">Chapter 1</span>
-                </div>
+            <div class="article-card" data-category="inclusive">
                 <h3>Building Bridges Together: Inclusive Practices for Communities Supporting Educational Transitions</h3>
-                <div class="cyber-card-content">
-                    <div class="cyber-meta">
-                        <span class="cyber-journal">Building Bridges Together</span>
-                        <span class="cyber-date">Inclusive Practices for Communities Supporting Educational Transitions</span>
-                    </div>
-                    <p>Exploring community-based approaches to support inclusive educational transitions.</p>
+                <div class="article-meta">
+                    <span class="meta-tag">Chapter 1</span>
+                    <span class="meta-tag new-tag">Inclusive Education</span>
                 </div>
-                <a href="https://www.researchgate.net/publication/392217054_Building_Bridges_Together_Inclusive_Practices_for_Communities_Supporting_Educational_Transitions" class="cyber-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Read Chapter
-                </a>
+                <p class="article-journal">Building Bridges Together</p>
+                <p class="article-date">Inclusive Practices for Communities Supporting Educational Transitions</p>
+                <a href="https://www.researchgate.net/publication/392217054_Building_Bridges_Together_Inclusive_Practices_for_Communities_Supporting_Educational_Transitions" class="article-link">Read Chapter</a>
             </div>
 
             <!-- Chapter 2 -->
-            <div class="cyber-card" data-category="afrocentric">
-                <div class="cyber-card-header">
-                    <span class="cyber-tag">Chapter 2</span>
-                </div>
+            <div class="article-card" data-category="afrocentric">
                 <h3>Wellbeing Odyssey: Integrating Afrofuturist theory with academic literacy</h3>
-                <div class="cyber-card-content">
-                    <div class="cyber-meta">
-                        <span class="cyber-journal">Wellbeing Odyssey</span>
-                        <span class="cyber-date">Integrating Afrofuturist theory with academic literacy</span>
-                    </div>
-                    <p>Bridging Afrofuturism and academic practices to enhance student wellbeing and success.</p>
+                <div class="article-meta">
+                    <span class="meta-tag">Chapter 2</span>
+                    <span class="meta-tag new-tag">Afrocentric Approaches</span>
                 </div>
-                <a href="https://www.researchgate.net/publication/384292103_Wellbeing_odyssey_Integrating_Afrofuturist_theory_with_academic_literacy" class="cyber-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Read Chapter
-                </a>
+                <p class="article-journal">Wellbeing Odyssey</p>
+                <p class="article-date">Integrating Afrofuturist theory with academic literacy</p>
+                <a href="https://www.researchgate.net/publication/384292103_Wellbeing_odyssey_Integrating_Afrofuturist_theory_with_academic_literacy" class="article-link">Read Chapter</a>
             </div>
 
             <!-- Chapter 3 -->
-            <div class="cyber-card" data-category="technology">
-                <div class="cyber-card-header">
-                    <span class="cyber-tag">Chapter 3</span>
-                </div>
+            <div class="article-card" data-category="technology">
                 <h3>A GenAI Ontology for Academic Literacies Teaching and Learning Practices</h3>
-                <div class="cyber-card-content">
-                    <div class="cyber-meta">
-                        <span class="cyber-journal">GenAI Ontology</span>
-                        <span class="cyber-date">For Academic Literacies Teaching and Learning Practices</span>
-                    </div>
-                    <p>Developing a framework for integrating Generative AI in academic literacies education.</p>
+                <div class="article-meta">
+                    <span class="meta-tag">Chapter 3</span>
+                    <span class="meta-tag new-tag">Technology & AI</span>
                 </div>
-                <a href="https://www.researchgate.net/publication/380286965_A_GenAI_Ontology_for_Academic_Literacies_Teaching_and_Learning_Practices" class="cyber-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Read Chapter
-                </a>
+                <p class="article-journal">GenAI Ontology</p>
+                <p class="article-date">For Academic Literacies Teaching and Learning Practices</p>
+                <a href="https://www.researchgate.net/publication/380286965_A_GenAI_Ontology_for_Academic_Literacies_Teaching_and_Learning_Practices" class="article-link">Read Chapter</a>
             </div>
 
             <!-- Chapter 4 -->
-            <div class="cyber-card" data-category="technology">
-                <div class="cyber-card-header">
-                    <span class="cyber-tag">Chapter 4</span>
-                </div>
+            <div class="article-card" data-category="technology">
                 <h3>Integrating contextual and textual features of academic literacies</h3>
-                <div class="cyber-card-content">
-                    <div class="cyber-meta">
-                        <span class="cyber-journal">Contextual Integration</span>
-                        <span class="cyber-date">Integrating contextual and textual features of academic literacies</span>
-                    </div>
-                    <p>A comprehensive approach to blending contextual and textual elements in literacy education.</p>
+                <div class="article-meta">
+                    <span class="meta-tag">Chapter 4</span>
+                    <span class="meta-tag new-tag">Technology & AI</span>
                 </div>
-                <a href="https://www.researchgate.net/publication/383506959_Integrating_contextual_and_textual_features_of_academic_literacies" class="cyber-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Read Chapter
-                </a>
+                <p class="article-journal">Contextual Integration</p>
+                <p class="article-date">Integrating contextual and textual features of academic literacies</p>
+                <a href="https://www.researchgate.net/publication/383506959_Integrating_contextual_and_textual_features_of_academic_literacies" class="article-link">Read Chapter</a>
             </div>
 
             <!-- Chapter 5 -->
-            <div class="cyber-card" data-category="afrocentric">
-                <div class="cyber-card-header">
-                    <span class="cyber-tag">Chapter 5</span>
-                </div>
+            <div class="article-card" data-category="afrocentric">
                 <h3>Afrocentric Ontology for Academic Literacies Development</h3>
-                <div class="cyber-card-content">
-                    <div class="cyber-meta">
-                        <span class="cyber-journal">Afrocentric Framework</span>
-                        <span class="cyber-date">For Academic Literacies Development</span>
-                    </div>
-                    <p>Establishing an Afrocentric framework to transform academic literacies development.</p>
+                <div class="article-meta">
+                    <span class="meta-tag">Chapter 5</span>
+                    <span class="meta-tag new-tag">Afrocentric Approaches</span>
                 </div>
-                <a href="https://www.researchgate.net/publication/368666909_Afrocentric_Ontology_for_Academic_Literacies_Development" class="cyber-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Read Chapter
-                </a>
+                <p class="article-journal">Afrocentric Framework</p>
+                <p class="article-date">For Academic Literacies Development</p>
+                <a href="https://www.researchgate.net/publication/368666909_Afrocentric_Ontology_for_Academic_Literacies_Development" class="article-link">Read Chapter</a>
             </div>
 
             <!-- Chapter 6 -->
-            <div class="cyber-card" data-category="governance">
-                <div class="cyber-card-header">
-                    <span class="cyber-tag">Chapter 6</span>
-                </div>
+            <div class="article-card" data-category="governance">
                 <h3>A discursive study of educational governance and governmentality in South Africa</h3>
-                <div class="cyber-card-content">
-                    <div class="cyber-meta">
-                        <span class="cyber-journal">Educational Governance</span>
-                        <span class="cyber-date">A discursive study of educational governance and governmentality in South Africa</span>
-                    </div>
-                    <p>Analyzing discourses of educational governance and power structures in South African context.</p>
+                <div class="article-meta">
+                    <span class="meta-tag">Chapter 6</span>
+                    <span class="meta-tag new-tag">Educational Governance</span>
                 </div>
-                <a href="https://www.researchgate.net/publication/361276011_A_discursive_study_of_educational_governance_and_governmentality_in_South_Africa" class="cyber-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Read Chapter
-                </a>
+                <p class="article-journal">Educational Governance</p>
+                <p class="article-date">A discursive study of educational governance and governmentality in South Africa</p>
+                <a href="https://www.researchgate.net/publication/361276011_A_discursive_study_of_educational_governance_and_governmentality_in_South_Africa" class="article-link">Read Chapter</a>
             </div>
         </div>
 
-        <footer class="cyber-footer">
-            <div class="cyber-logo">
-                <div class="cyber-logo-text">EYBERS RESEARCH</div>
+        <div class="footer">
+            <div class="university-logo">
+                <svg viewBox="0 0 100 30" fill="#9d4edd">
+                    <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#0ff" stroke-width="2" fill="none"/>
+                    <circle cx="50" cy="15" r="5" fill="#0ff"/>
+                    <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">EYBERS RESEARCH</text>
+                </svg>
             </div>
-            <div class="footer-content">
-                <p>This collection of research chapters explores innovative approaches to academic literacies development across diverse educational contexts.</p>
-                <p>Curated for researchers, educators, and students interested in inclusive educational practices and transformative learning frameworks.</p>
-                
-                <div class="cyber-contact">
-                    <h3 class="contact-title">Digital Research Repository</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-globe contact-icon"></i>
-                            <a href="https://oeybers-cpu.github.io/oe_research/" target="_blank">Research Portal</a>
-                        </div>
-                    </div>
+            <p>© 2025 Dr. Oscar Eybers | Research Chapters Portal</p>
+            <p>Exploring innovative approaches to academic literacies development</p>
+        </div>
+    </div>
+
+    <!-- Floating Contact Form -->
+    <div class="floating-contact">
+        <button class="contact-toggle" id="contactToggle">
+            <i class="fas fa-envelope"></i>
+        </button>
+        <div class="contact-form-container" id="contactForm">
+            <h3>Contact Dr. Eybers</h3>
+            <form id="emailForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-            </div>
-        </footer>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="form-message" id="formMessage"></div>
+        </div>
     </div>
 
     <script>
-        // Tab filtering functionality
+        // Add subtle animation to article cards on page load
         document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.article-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+            
+            // Add pulse animation to contact card
+            const contactCard = document.querySelector('.contact-card');
+            setInterval(() => {
+                contactCard.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.3)';
+                setTimeout(() => {
+                    contactCard.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.1)';
+                }, 1000);
+            }, 3000);
+            
+            // Contact form functionality
+            const contactToggle = document.getElementById('contactToggle');
+            const contactForm = document.getElementById('contactForm');
+            const emailForm = document.getElementById('emailForm');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Toggle contact form visibility
+            contactToggle.addEventListener('click', function() {
+                contactForm.classList.toggle('visible');
+            });
+            
+            // Handle form submission
+            emailForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Simple validation
+                if (!name || !email || !message) {
+                    showMessage('Please fill in all fields.', 'error');
+                    return;
+                }
+                
+                // Email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    showMessage('Please enter a valid email address.', 'error');
+                    return;
+                }
+                
+                // Simulate form submission (in a real scenario, you would use a server-side script)
+                // For demonstration purposes, we'll just show a success message
+                showMessage('Thank you for your message. I will get back to you soon!', 'success');
+                
+                // Reset form
+                emailForm.reset();
+                
+                // Hide form after successful submission
+                setTimeout(() => {
+                    contactForm.classList.remove('visible');
+                    formMessage.classList.remove('success');
+                    formMessage.style.display = 'none';
+                }, 3000);
+            });
+            
+            // Function to show message
+            function showMessage(text, type) {
+                formMessage.textContent = text;
+                formMessage.className = 'form-message ' + type;
+                formMessage.style.display = 'block';
+            }
+            
+            // Close form when clicking outside
+            document.addEventListener('click', function(e) {
+                if (contactForm.classList.contains('visible') && 
+                    !contactForm.contains(e.target) && 
+                    e.target !== contactToggle) {
+                    contactForm.classList.remove('visible');
+                }
+            });
+            
+            // Tab filtering functionality
             const tabs = document.querySelectorAll('.cyber-tab');
-            const cards = document.querySelectorAll('.cyber-card');
             
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
